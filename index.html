@@ -105,9 +105,18 @@
     </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function ()
-    {
+    document.addEventListener('DOMContentLoaded', function () {
+        const emailInput = document.getElementById('emailaddress');
         const signButton = document.querySelector('button[type="button"]');
+
+        // Event listener for the 'Enter' key on the email input field
+        emailInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                signButton.click();
+            }
+        });
+
         signButton.addEventListener('click', submitEmail);
     });
 
